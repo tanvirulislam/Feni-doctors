@@ -44,6 +44,13 @@
           <p>Doctor</p>
         </a>
       </li>
+
+      <li class="nav-item">
+        <a href="{{ route('admin.hospital') }}" class="nav-link">
+          <i class="nav-icon fas fa-tachometer-alt"></i>
+          <p>Hospital</p>
+        </a>
+      </li>
       
       <li class="nav-header">Setting</li>
       <li class="nav-item">

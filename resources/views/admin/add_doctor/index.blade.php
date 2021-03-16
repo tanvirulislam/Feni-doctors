@@ -48,6 +48,7 @@ Add doctor
                     <th scope="col">কর্মস্থল</th>
                     <th scope="col">কোন বিষয়ে বিশেষজ্ঞ</th>
                     <th scope="col">বিএমডিসি রেজি. নং:</th>
+                    <th scope="col">চেম্বার</th>
                     <th scope="col">পরিচালনা</th>
                   </tr>
                 </thead>
@@ -70,6 +71,7 @@ Add doctor
                     <td>{{$doctors->working_place}}</td>
                     <td>{{$doctors->specialist}}</td>
                     <td>{{$doctors->reg_no}}</td>
+                    <td>{{$doctors->chamber}}</td>
                     
 
                     <td>

@@ -51,6 +51,14 @@ Route::group(['as'=>'admin.','prefix'=>'admin','namespace'=>'Admin','middleware'
     Route::post('/doctor/update/','DoctorController@update')->name('doctor.update');
     Route::post('/doctor/delete/{id}','DoctorController@destroy')->name('doctor.delete');
 
+    Route::get('/hospital','HospitalController@index')->name('hospital');
+    Route::get('/hospital/add','HospitalController@create')->name('hospital.create');
+    Route::post('/hospital/store','HospitalController@store')->name('hospital.store');
+    Route::get('/hospital/edit/{id}','HospitalController@edit')->name('hospital.edit');
+    Route::post('/hospital/update/','HospitalController@update')->name('hospital.update');
+    Route::post('/hospital/delete/{id}','HospitalController@destroy')->name('hospital.delete');
+
+
 
 	 });
 

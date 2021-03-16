@@ -52,37 +52,41 @@ Doctor add
 
               <div class="form-group">
                 <label for="exampleFormControlInput1">ডিগ্রি</label>
-                <textarea rows="" cols=""  name="degree" class="form-control" id="exampleFormControlInput1" placeholder="বিএমডিসি অনুমোদিত ডিগ্রি এবং কোর্সের নাম লিখুন। যেমন: এমবিবিএস; এমডি (কার্ডিওলজি)..."></textarea>
+                <textarea class="textarea" name="degree" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
+                </textarea>
               </div>
 
               <div class="form-group">
                 <label for="exampleFormControlInput1">পদবী</label>
-                <textarea rows="" cols=""  name="designation" class="form-control" id="exampleFormControlInput1" placeholder="মেডিকেল অফিসার / কনসালট্যান্ট / সহকারী অধ্যাপক... (না থাকলে খালি রাখুন)"></textarea>
+                <textarea class="textarea" name="designation" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
+                </textarea>
               </div>
 
               <div class="form-group">
                 <label for="exampleFormControlInput1">কর্মস্থল</label>
-                <textarea rows="" cols=""  name="working_place" class="form-control" id="exampleFormControlInput1" placeholder="কর্মস্থলের নাম লিখুন। যেমন: ২৫০ শয্যা বিশিষ্ট আধুনিক সদর হাসপাতাল, ফেনী। (না থাকলে খালি রাখুন)"></textarea>
+                <textarea class="textarea" name="working_place" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
+                </textarea>
               </div>
 
               <div class="form-group">
                 <label for="exampleFormControlInput1">কোন বিষয়ে বিশেষজ্ঞ</label>
-                <textarea rows="" cols=""  name="specialist" class="form-control" id="exampleFormControlInput1" placeholder="যেমন: হৃদরোগ বিশেষজ্ঞ / জেনারেল ফিজিশিয়ান..."></textarea>
+                <textarea class="textarea" name="specialist" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
+                </textarea>
               </div>
 
               <div class="form-group">
                 <label for="exampleFormControlInput1">বিএমডিসি রেজি. নং:</label>
-                <textarea rows="" cols=""  name="reg_no" class="form-control" id="exampleFormControlInput1" placeholder="বিএমডিসি রেজি. নং:"></textarea>
+                <textarea class="textarea" name="reg_no" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
+                </textarea>
               </div>
 
               <div class="form-group" > 
-                <label for="exampleFormControlInput1">চেম্বার</label>&nbsp <span><i class="fas fa-plus-square"onclick="createNewElement();"></i></span>
-                <textarea rows="" cols=""  name="chamber" class="form-control" id="exampleFormControlInput1" placeholder="চেম্বারের নাম লিখুন। যেমন: ভাইটাল রিসার্চ ইউনিট-২"></textarea>
+                <label for="exampleFormControlInput1">চেম্বার</label>&nbsp 
+                <span><i class="fas fa-plus-square"onclick="createNewElement();"></i></span>
+                <textarea class="textarea" name="chamber[]" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
+                </textarea>
               </div>
 
-              <!-- <div id="dynamicCheck">
-                <input type="button" value="Create Element" onclick="createNewElement();" />
-              </div> -->
               
                 <div  id="newElementId">More Chamber</div>
                 
@@ -117,7 +121,9 @@ function createNewElement() {
 	var txtNewInputBox = document.createElement('div');
 
     // Then add the content (a new input box) of the element.
-	txtNewInputBox.innerHTML = "<input type='text' id='newInputBox' class='form-control' placeholder='Add another chamber' >";
+	txtNewInputBox.innerHTML = '<textarea class="textarea" name="chamber[]" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">'
+               
+                '</textarea>';
 
 
     // Finally put it where it is supposed to appear.

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use\Image;
 use DB;
 use Brian2694\Toastr\Facades\Toastr;
+use App\Chamber;
 
 class DoctorController extends Controller
 {
@@ -28,7 +29,7 @@ class DoctorController extends Controller
  
     
     public function store(Request $request){
-        
+        // dd($request);
        $request->validate([
             'name' => 'required',
             'category' => 'required',
@@ -47,11 +48,21 @@ class DoctorController extends Controller
        $data['designation']= $request->get('designation');
        $data['specialist']= $request->get('specialist');
        $data['reg_no']= $request->get('reg_no');
-       $data['chamber']= $request->get('chamber');
        $data['status']= $request->get('status');
 
-        $query_insert = DB::table('tbl_doctor')->insert($data);
-       
+        DB::table('tbl_doctor')->insert($data);
+
+        // $regi_no=$request->reg_no;
+        $doc_id = DB::table('tbl_doctor')->where('name', $request->get('name'))->value('id');
+
+       foreach($request->chamber as $chamber){
+            $data = array();
+            $data['doctor_id']= $doc_id;
+            $data['more_chamber']= $chamber;
+
+            DB::table('chambers')->insert($data);
+
+       }
         Toastr::success('Successully Add 🙂' ,'Success');
 
         return redirect()->route('admin.doctor')->with('message','Registered succesfully');
