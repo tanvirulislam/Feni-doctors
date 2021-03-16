@@ -13,7 +13,7 @@ class DoctorController extends Controller
     public function index()
     {   
         $categories= DB::table('tbl_category')->get();
-        $doctor= DB::table('tbl_doctor')->get();
+        $doctor= DB::table('tbl_doctor')->orderBy('id', 'DESC')->get();
 
        return view('admin.add_doctor.index',['doctor'=>$doctor, 'categories'=>$categories]);
     }
@@ -62,9 +62,10 @@ class DoctorController extends Controller
    
     public function edit($id)
     {
-        $category = DB::table('tbl_doctor')->where('id', $id)->first();
+        $categories= DB::table('tbl_category')->get();
+        $doctor= DB::table('tbl_doctor')->first();
 
-        return view('admin.add_doctor.edit',['category'=>$category]);
+        return view('admin.add_doctor.edit',['categories'=>$categories, 'doctor'=>$doctor]);
 
     }
 
@@ -85,8 +86,6 @@ class DoctorController extends Controller
                 'status'=>$request->status,
 
            ]);
-
-        
       
        Toastr::success('Successully Updated 🙂' ,'Success');
 

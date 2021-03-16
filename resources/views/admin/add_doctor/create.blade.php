@@ -35,7 +35,7 @@ Doctor add
 
               <div class="form-group">
                 <label for="exampleFormControlInput1">নাম</label>
-                <input type="text" name="name" class="form-control" id="exampleFormControlInput1" placeholder="ডাক্তারের নাম লিখুন। যেমন: ডা. হুমায়ুন কবীর">
+                <input type="text" name="name" class="form-control"  id="exampleFormControlInput1" placeholder="ডাক্তারের নাম লিখুন। যেমন: ডা. হুমায়ুন কবীর">
               </div>
 
               <div class="form-group">
@@ -89,7 +89,7 @@ Doctor add
               <br>
               <div class="form-group">
                 <label for="exampleFormControlSelect1">Status</label>
-                <select name="Status" class="form-control" id="exampleFormControlSelect1" >
+                <select name="status" class="form-control" id="exampleFormControlSelect1" >
                   <option value="1">Active</option>
                   <option value="0">Inactive</option>
                   

@@ -37,7 +37,7 @@ Add doctor
               </div>
             </div>
             <div class="card-body">
-              <table class="table table-bordered">
+              <table class="table table-bordered responsive" id="example1">
                 <thead>
                   <tr>
                     <th scope="col">ক্রমিক সংখ্যা</th>
@@ -74,10 +74,10 @@ Add doctor
 
                     <td>
                       <button  type="button" class="btn btn-danger text-light" onclick="deleteTag({{ $doctors->id }})"><i class="fas fa-trash-alt"></i></button>
-                      <form id="delete-form-{{ $doctors->id }}" action="{{ route('admin.category.delete',$doctors->id) }}" method="POST" style="display: none;">
+                      <form id="delete-form-{{ $doctors->id }}" action="{{ route('admin.doctor.delete',$doctors->id) }}" method="POST" style="display: none;">
                         @csrf
                       </form>
-                      <a href="{{ route('admin.category.edit',$doctors->id) }}" type="button" class="btn btn-info text-light"><i class="fas fa-edit"></i></a>
+                      <a href="{{ route('admin.doctor.edit',$doctors->id) }}" type="button" class="btn btn-info text-light"><i class="fas fa-edit"></i></a>
 
                     </td>
                   </tr>
@@ -85,6 +85,7 @@ Add doctor
                 </tbody>
                 
               </table>
+             
             </div>
           </div>
         </div>

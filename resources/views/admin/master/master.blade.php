@@ -6,6 +6,8 @@
   <title>@yield('title')</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+ <link href="{{ asset('/') }}public/front/icon.png" rel="shortcut icon"/>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="{{asset('/')}}public/admin/plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
@@ -26,6 +28,16 @@
   <link rel="stylesheet" href="{{asset('/')}}public/admin/plugins/summernote/summernote-bs4.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="{{asset('/')}}public/admin/plugins/datatables-bs4/css/dataTables.bootstrap4.css">
+   <link rel="stylesheet" href="https://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+   <link rel="stylesheet" href="{{asset('/')}}public/admin/simple-calendar.css">
+   <!-- jQuery -->
+<script src="{{asset('/')}}public/admin/plugins/jquery/jquery.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="{{asset('/')}}public/admin/plugins/jquery-ui/jquery-ui.min.js"></script>
+<link href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css"/>
+    
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -50,10 +62,7 @@
 </div>
 <!-- ./wrapper -->
 
-<!-- jQuery -->
-<script src="{{asset('/')}}public/admin/plugins/jquery/jquery.min.js"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="{{asset('/')}}public/admin/plugins/jquery-ui/jquery-ui.min.js"></script>
+
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
   $.widget.bridge('uibutton', $.ui.button)
@@ -84,8 +93,31 @@
 <script src="{{asset('/')}}public/admin/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('/')}}public/admin/dist/js/demo.js"></script>
-
-<script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+<!-- DataTables -->
+<script src="{{asset('/')}}public/admin/plugins/datatables/jquery.dataTables.js"></script>
+<script src="{{asset('/')}}public/admin/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
+<script>
+  $(function () {
+    $("#example1").DataTable();
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+    });
+  });
+</script>
+<!-- Summernote -->
+<script src="{{asset('/')}}public/admin/plugins/summernote/summernote-bs4.min.js"></script>
+<script>
+  $(function () {
+    // Summernote
+    $('.textarea').summernote()
+  })
+</script>
+ <script src="https://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
         {!! Toastr::message() !!}
            <script>
     @if($errors->any())
@@ -159,6 +191,7 @@ function approveAgent(id) {
                 }
             })
         }
+
          function inactiveAgent(id) {
             swal({
                 title: 'Are you sure?',
@@ -190,6 +223,41 @@ function approveAgent(id) {
             })
         }
     </script>
+    <script src="{{asset('/')}}public/admin/jquery.simple-calendar.js"></script>
+<script>
+  $(document).ready(function () {
+    $("#container").simpleCalendar({
+      fixedStartDay: 0, // begin weeks by sunday
+      disableEmptyDetails: true,
+      events: [
+        // generate new event after tomorrow for one hour
+        {
+          startDate: new Date(new Date().setHours(new Date().getHours() + 24)).toDateString(),
+          endDate: new Date(new Date().setHours(new Date().getHours() + 25)).toISOString(),
+          summary: 'Visit of the Eiffel Tower'
+        },
+        // generate new event for yesterday at noon
+        {
+          startDate: new Date(new Date().setHours(new Date().getHours() - new Date().getHours() - 12, 0)).toISOString(),
+          endDate: new Date(new Date().setHours(new Date().getHours() - new Date().getHours() - 11)).getTime(),
+          summary: 'Restaurant'
+        },
+        // generate new event for the last two days
+        {
+          startDate: new Date(new Date().setHours(new Date().getHours() - 48)).toISOString(),
+          endDate: new Date(new Date().setHours(new Date().getHours() - 24)).getTime(),
+          summary: 'Visit of the Louvre'
+        }
+      ],
 
+    });
+  });
+</script>
+<script type="text/javascript">
+                
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();   
+});
+</script>
 </body>
 </html>

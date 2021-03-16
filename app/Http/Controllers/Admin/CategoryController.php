@@ -13,7 +13,7 @@ class CategoryController extends Controller
 {
     public function index()
     {   
-        $categories= DB::table('tbl_category')->get();
+        $categories= DB::table('tbl_category')->orderBy('id', 'DESC')->get();
 
        return view('admin.category.index',['categories'=>$categories]);
     }

@@ -41,7 +41,7 @@
       <li class="nav-item">
         <a href="{{ route('admin.doctor') }}" class="nav-link">
           <i class="nav-icon fas fa-tachometer-alt"></i>
-          <p>Add doctor</p>
+          <p>Doctor</p>
         </a>
       </li>
       

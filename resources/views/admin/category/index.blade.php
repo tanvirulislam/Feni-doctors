@@ -37,7 +37,7 @@ Category
         </div>
         </div>
         <div class="card-body">
-        <table class="table table-bordered">
+        <table class="table table-bordered" id="example1">
             <thead>
             <tr>
                 <th scope="col">ক্রমিক সংখ্যা</th>
