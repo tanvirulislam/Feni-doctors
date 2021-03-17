@@ -1,6 +1,6 @@
 @extends('admin.master.master')
 @section('title')
-হাসপাতাল
+বিভাগ
 @endsection
 
 @section('body')
@@ -10,12 +10,12 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1>হাসপাতাল</h1>
+        <h1>বিভাগ</h1>
       </div>
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="#">Home</a></li>
-          <li class="breadcrumb-item active">হাসপাতাল</li> 
+          <li class="breadcrumb-item active">বিভাগ</li> 
 
         </ol>
       </div>
@@ -30,31 +30,18 @@
       <div class="card" style="">
         
       <div class="card-body">
-        <form method="post" action="{{route('admin.hospital.update')}}">
+        <form method="post" action="{{route('admin.banner.update')}}">
             @csrf
 
             <input type="hidden" name="id" value="{{$category->id}}" class="form-control" id="exampleFormControlInput1">
 
-            <div class="form-group">
-            <label for="exampleFormControlInput1">নাম</label>
-            <input type="text" name="name" value="{{$category->name}}" required class="form-control" id="exampleFormControlInput1" placeholder="নাম">
-          </div>
-
-          <div class="form-group">
-            <label for="exampleFormControlInput1">ঠিকানা</label>
-            <!-- <input type="text" name="address" class="form-control" id="exampleFormControlInput1" placeholder="ঠিকানা"> -->
-            <textarea class="textarea" name="address"  placeholder="ঠিকানা" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
-            {!!$category->address!!}
-            </textarea>
-          </div>
-
           
-          <div class="form-group">
-            <label for="exampleFormControlInput1">মোবাইল</label>
-            <input type="text" name="mobile" value="{{$category->mobile}}" class="form-control" id="exampleFormControlInput1" placeholder="মোবাইল">
-          </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlFile1">ছবি</label>
+                        <input type="file" name="image" value="{{$category->image}}" class="form-control-file" id="exampleFormControlFile1">
+                    </div>
 
-          <div class="form-group">
+                    <div class="form-group">
           <label for="exampleFormControlSelect1">অবস্থা</label>
           <select name="status" class="form-control" id="exampleFormControlSelect1">
             <option value="1" {{ $category->status == 1 ? 'selected' : '' }}>Active</option>
@@ -62,6 +49,7 @@
 
           </select>
         </div>
+            
             
             <button type="submit" class="btn btn-success">Submit</button>
 

@@ -51,7 +51,43 @@
           <p>Hospital</p>
         </a>
       </li>
+
+      <li class="nav-item">
+        <a href="{{ route('admin.fire-service') }}" class="nav-link">
+          <i class="nav-icon fas fa-tachometer-alt"></i>
+          <p>Fire service</p>
+        </a>
+      </li>
       
+      <li class="nav-item">
+        <a href="{{ route('admin.ambulance') }}" class="nav-link">
+          <i class="nav-icon fas fa-tachometer-alt"></i>
+          <p>Ambulance service</p>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a href="{{ route('admin.police') }}" class="nav-link">
+          <i class="nav-icon fas fa-tachometer-alt"></i>
+          <p>Police</p>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a href="{{ route('admin.blood_donor') }}" class="nav-link">
+          <i class="nav-icon fas fa-tachometer-alt"></i>
+          <p>Blood donor</p>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a href="{{ route('admin.banner') }}" class="nav-link">
+          <i class="nav-icon fas fa-tachometer-alt"></i>
+          <p>Banner</p>
+        </a>
+      </li>
+
+
       <li class="nav-header">Setting</li>
       <li class="nav-item">
         <a href="{{ route('admin.settings') }}" class="nav-link">

@@ -1,6 +1,6 @@
 @extends('admin.master.master')
 @section('title')
-হাসপাতাল
+অ্যাম্বুলেন্স সার্ভিস
 @endsection
 
 @section('body')
@@ -11,12 +11,12 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1>হাসপাতাল</h1>
+        <h1>অ্যাম্বুলেন্স সার্ভিস</h1>
       </div>
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="#">Home</a></li>
-          <li class="breadcrumb-item active">হাসপাতাল</li> 
+          <li class="breadcrumb-item active">অ্যাম্বুলেন্স সার্ভিস</li> 
 
         </ol>
       </div>
@@ -30,19 +30,14 @@
      <div class="col-md-12">
       <div class="card" style="">
         <div class="card-body">
-        <form method="post" action="{{route('admin.hospital.store')}}" enctype="multipart/form-data">
+        <form method="post" action="{{route('admin.ambulance.store')}}" enctype="multipart/form-data">
           @csrf
           <div class="form-group">
             <label for="exampleFormControlInput1">নাম</label>
             <input type="text" name="name" required class="form-control" id="exampleFormControlInput1" placeholder="নাম">
           </div>
 
-          <div class="form-group">
-            <label for="exampleFormControlInput1">ঠিকানা</label>
-            <!-- <input type="text" name="address" class="form-control" id="exampleFormControlInput1" placeholder="ঠিকানা"> -->
-            <textarea class="textarea" name="address" required placeholder="ঠিকানা" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
-          </div>
-
+         
           
           <div class="form-group">
             <label for="exampleFormControlInput1">মোবাইল</label>

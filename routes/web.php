@@ -22,9 +22,13 @@ Route::get('/clear', function() {
     return 'Cleared!';
 });
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', 'HomeController@front')->name('index');
+// Route::get('/banner', 'FrontController@banner')->name('banner');
+
 
 Auth::routes();
 
@@ -58,6 +62,40 @@ Route::group(['as'=>'admin.','prefix'=>'admin','namespace'=>'Admin','middleware'
     Route::post('/hospital/update/','HospitalController@update')->name('hospital.update');
     Route::post('/hospital/delete/{id}','HospitalController@destroy')->name('hospital.delete');
 
+    Route::get('/fire-service','FireServiceController@index')->name('fire-service');
+    Route::get('/fire-service/add','FireServiceController@create')->name('fire-service.create');
+    Route::post('/fire-service/store','FireServiceController@store')->name('fire-service.store');
+    Route::get('/fire-service/edit/{id}','FireServiceController@edit')->name('fire-service.edit');
+    Route::post('/fire-service/update/','FireServiceController@update')->name('fire-service.update');
+    Route::post('/fire-service/delete/{id}','FireServiceController@destroy')->name('fire-service.delete');
+
+    Route::get('/ambulance','AmbulanceController@index')->name('ambulance');
+    Route::get('/ambulance/add','AmbulanceController@create')->name('ambulance.create');
+    Route::post('/ambulance/store','AmbulanceController@store')->name('ambulance.store');
+    Route::get('/ambulance/edit/{id}','AmbulanceController@edit')->name('ambulance.edit');
+    Route::post('/ambulance/update/','AmbulanceController@update')->name('ambulance.update');
+    Route::post('/ambulance/delete/{id}','AmbulanceController@destroy')->name('ambulance.delete');
+
+    Route::get('/police','policeController@index')->name('police');
+    Route::get('/police/add','policeController@create')->name('police.create');
+    Route::post('/police/store','policeController@store')->name('police.store');
+    Route::get('/police/edit/{id}','policeController@edit')->name('police.edit');
+    Route::post('/police/update/','policeController@update')->name('police.update');
+    Route::post('/police/delete/{id}','policeController@destroy')->name('police.delete');
+
+    Route::get('/blood-donor','BloodDonorController@index')->name('blood_donor');
+    Route::get('/blood-donor/add','BloodDonorController@create')->name('blood_donor.create');
+    Route::post('/blood-donor/store','BloodDonorController@store')->name('blood_donor.store');
+    Route::get('/blood-donor/edit/{id}','BloodDonorController@edit')->name('blood_donor.edit');
+    Route::post('/blood-donor/update/','BloodDonorController@update')->name('blood_donor.update');
+    Route::post('/blood-donor/delete/{id}','BloodDonorController@destroy')->name('blood_donor.delete');
+
+    Route::get('/banner','BannerController@index')->name('banner');
+    Route::get('/banner/add','BannerController@create')->name('banner.create');
+    Route::post('/banner/store','BannerController@store')->name('banner.store');
+    Route::get('/banner/edit/{id}','BannerController@edit')->name('banner.edit');
+    Route::post('/banner/update/','BannerController@update')->name('banner.update');
+    Route::post('/banner/delete/{id}','BannerController@destroy')->name('banner.delete');
 
 
 	 });

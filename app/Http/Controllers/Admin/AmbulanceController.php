@@ -4,23 +4,22 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use\Image;
 use DB;
 use Brian2694\Toastr\Facades\Toastr;
 
-class HospitalController extends Controller
+class AmbulanceController extends Controller
 {
     public function index()
     {   
-        $categories= DB::table('tbl_hospital')->orderBy('id', 'DESC')->get();
+        $categories= DB::table('tbl_ambulance')->orderBy('id', 'DESC')->get();
 
-       return view('admin.hospital.index',['categories'=>$categories]);
+       return view('admin.ambulance.index',['categories'=>$categories]);
     }
 
    
     public function create()
     {
-        return view('admin.hospital.create');
+        return view('admin.ambulance.create');
     }
 
     
@@ -30,7 +29,6 @@ class HospitalController extends Controller
        $request->validate([
 
             'name' => 'required',
-            'address' => 'required',
             'mobile' => 'required'
 
         ]);
@@ -38,22 +36,21 @@ class HospitalController extends Controller
       
        $data = array();
        $data['name']= $request->get('name');
-       $data['address']= $request->get('address');
        $data['mobile']= $request->get('mobile');
 
-       $query_insert = DB::table('tbl_hospital')->insert($data);
+       $query_insert = DB::table('tbl_ambulance')->insert($data);
        
        Toastr::success('Successully Add 🙂' ,'Success');
-       return redirect()->route('admin.hospital')->with('message','Registered succesfully');
+       return redirect()->route('admin.ambulance')->with('message','Registered succesfully');
        
     }
 
    
     public function edit($id)
     {
-        $category = DB::table('tbl_hospital')->where('id', $id)->first();
 
-        return view('admin.hospital.edit',['category'=>$category]);
+        $category = DB::table('tbl_ambulance')->where('id', $id)->first();
+        return view('admin.ambulance.edit',['category'=>$category]);
 
     }
 
@@ -61,10 +58,9 @@ class HospitalController extends Controller
     public function update(Request $request)
     {
 
-            DB::table('tbl_hospital')->where('id', $request->id)->update([
+            DB::table('tbl_ambulance')->where('id', $request->id)->update([
 
                 'name'=>$request->name,
-                'address' => $request->address,
                 'mobile' => $request->mobile,
                 'status' => $request->status,
 
@@ -75,16 +71,16 @@ class HospitalController extends Controller
       
        Toastr::success('Successully Updated 🙂' ,'Success');
 
-        return redirect()->route('admin.hospital');
+        return redirect()->route('admin.ambulance');
     }
 
     
     public function destroy($id)
     {
-        $category = DB::table('tbl_hospital')->where('id', $id)->delete();
+        $category = DB::table('tbl_ambulance')->where('id', $id)->delete();
 
         Toastr::warning('Successully Deleted 🙂' ,'Success');
 
-        return redirect()->route('admin.hospital');
+        return redirect()->route('admin.ambulance');
     }
 }
