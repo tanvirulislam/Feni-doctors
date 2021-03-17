@@ -1,7 +1,7 @@
  <!-- main image slider container -->
  <div class="slide-window">
             <div class="slide-wrapper" style="width:300%; ">
-                <div class="slide"  >
+                <div class="slide" style="background: url('{{asset($banner->image)}}')" >
                     <div class="slide-caption text-center">
                        <h3 class="text-uppercase">A range of programs for women’s <span>healthcare</span></h3>
                     </div>

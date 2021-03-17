@@ -26,8 +26,7 @@ Route::get('/clear', function() {
 //     return view('welcome');
 // });
 
-Route::get('/', 'HomeController@front')->name('index');
-// Route::get('/banner', 'FrontController@banner')->name('banner');
+Route::get('/', 'Front\FrontController@front')->name('index');
 
 
 Auth::routes();

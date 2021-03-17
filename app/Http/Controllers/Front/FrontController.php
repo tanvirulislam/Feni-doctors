@@ -10,9 +10,12 @@ use Image;
 
 class FrontController extends Controller
 {
-    
-    public function banner(){
+    public function front(){
+        return view('front_end.index');
+    }
 
+
+    public function banner(){
 
         $banner = DB::table('tbl_image')->get();
 
