@@ -5,46 +5,11 @@ Doctor details
 @endsection
 
 @section('body')
-<div class="about">
-    <div class="abt-layer" style="margin-top: -52px;">
-        <div class="container">
-            <div class="about-main">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h2 style="
-                        color: #ffab67;
-                        text-align: center;
-                        margin-top: -40px;
-                        margin-bottom: 19px;
-                        text-shadow: 3px 9px 10px black;
-                        ">আপনার ডাক্তার খোঁজ করুন এখানেই</h2>
-                        <form method="get" action="{{route('search_doctor')}}">
-                            <div class="row">
-                                <div class="col-md-10">
-                                    <select name="search" class="form-select form-control" aria-label="Default select example">
-                                        <option selected>বিভাগ  বাছাই করুন</option>
-                                        @foreach($categories as $cat)
-                                        <option value="{{$cat->id}}">{{$cat->cat_name}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                
-                                <div class="col-md-2">
-                                    
-								<button style="background: transparent;" type="submit" class="btn btn-primary">
-								<span><i style="color: #ffab61;" class="fas fa-search"></i> </span>
-								</button>
-                                </div>
-                            </div>
 
-                        </form>
-                    </div>
-                </div>
-            </div>
-            
-        </div>
-    </div>
-</div>
+
+
+
+
 <section class="content"  > 
     <div class="container-fluid">
       <div class="row">
@@ -115,4 +80,51 @@ Doctor details
     </div>
 
   </section>
+
+  <div class="about">
+    <div class="abt-layer" style="margin-top: -52px;">
+        <div class="container-fluid">
+            <div class="about-main" style="background: none;">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 style="
+                        color: #31c3d4;
+                        text-align: center;
+                        margin-bottom: 19px;
+                        text-shadow: 0px 1px 3px #777;
+                        ">আপনার ডাক্তার খোঁজ করুন এখানেই</h2>
+                      
+                            <div class="row">
+                                        @foreach($categories as $cat)
+                                        <div class="col-md-4 col-lg-3 col-6">
+                                    <div class="catrgory_box" style="margin-bottom: 9px;     ">
+                                        <div class="card card_hover" style="height:190px;text-align: center;">
+                                        <a href="{{route('category_details', $cat->id)}}" class="nav-link">
+
+                                             <center><img class="img-fluid" style="    width: 87px;height: 89px;" src="{{asset('/')}}{{$cat->cat_img}}" alt="Card image cap"></center>
+                                            
+                                           
+                                                <div class="card-body">
+                                                    <h6 style=" color: #31c3d4;" class="card-title">{{$cat->cat_name}}</h6>
+                                                </div>
+                                            </a>
+
+                                        </div>
+                                    </div>
+                                    </div>
+                                        @endforeach
+                                  
+                                </div>
+                                
+                                
+                            </div>
+
+                    
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
 @endsection

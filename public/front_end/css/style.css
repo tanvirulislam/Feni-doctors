@@ -107,7 +107,7 @@ header h1{
     z-index: 999;
     width: 100%;
     left: 0;
-    background: #02646F;
+    background: #31c3d4;
 }
 
 a.navbar-brand {
@@ -1392,3 +1392,9 @@ h3.subheading-w3-agile {
 
 /* // Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {  }
+
+.catrgory_box:hover{
+
+    box-shadow: 0px 1px 8px 0px #17565d9e;
+    transition: .3s;
+}

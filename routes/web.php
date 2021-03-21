@@ -30,6 +30,9 @@ Route::get('/', 'Front\FrontController@front')->name('index');
 Route::get('/doctor', 'Front\FrontController@search_doctor')->name('search_doctor');
 Route::get('/contact', 'Front\FrontController@contact')->name('contact');
 
+Route::get('/category/{id}', 'Front\FrontController@search_doctor')->name('category_details');
+
+
 Route::get('/all/ambulance', 'Front\FrontController@ambulance')->name('alloambulance');
 Route::get('/ambulance-add', 'Front\FrontController@ambulance_create')->name('ambulance_create');
 Route::post('/ambulance-store', 'Front\FrontController@ambulance_store')->name('ambulance_store');

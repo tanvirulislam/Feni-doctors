@@ -24,7 +24,7 @@ class FrontController extends Controller
         return view('front_end.index', compact('doctor', 'firstSlide', 'secondSlide', 'thirdSlide', 'category'));
     }
 
-    public function search_doctor(Request $request){
+    public function search_doctor($id){
         
         $chamber = DB::table('chambers')->get();
         $categories= DB::table('tbl_category')->get();
@@ -32,7 +32,7 @@ class FrontController extends Controller
         $secondSlide = DB::table('tbl_image')->where('situation',2)->where('status',1)->first();
         $thirdSlide = DB::table('tbl_image')->where('situation',3)->where('status',1)->first();
 
-        $doctor = DB::table('tbl_doctor')->where('status', 1)->where('category',$request->search)->get();
+        $doctor = DB::table('tbl_doctor')->where('status', 1)->where('category',$id)->get();
 
         return view('front_end.doctor_info', compact('chamber', 'doctor', 'categories', 'firstSlide', 'secondSlide', 'thirdSlide'));
 
@@ -377,7 +377,7 @@ class FrontController extends Controller
 
     public function contact(){
 
-$firstSlide = DB::table('tbl_image')->where('situation',1)->where('status',1)->first();
+        $firstSlide = DB::table('tbl_image')->where('situation',1)->where('status',1)->first();
         $secondSlide = DB::table('tbl_image')->where('situation',2)->where('status',1)->first();
         $thirdSlide = DB::table('tbl_image')->where('situation',3)->where('status',1)->first();
         return view('front_end.contact',['firstSlide'=> $firstSlide,

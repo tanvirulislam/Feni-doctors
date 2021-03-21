@@ -36,10 +36,12 @@ Home | Feni Doctor
               <div class="inner">
                 <!-- <h3>150</h3> -->
 
-                <p>Ambulance</p>
+                <p>Ambulance</p> 
+                &nbsp;  <b style="color:white">{{$ambulance}}</b>
               </div>
               <div class="icon">
                 <i class="ion ion-bag"></i>
+               
               </div>
               <a href="{{ route('admin.ambulance') }}" class="small-box-footer">Click Here For Detail <i class="fas fa-arrow-circle-right"></i></a>
             </div>
@@ -52,6 +54,8 @@ Home | Feni Doctor
                 <!-- <h3>53<sup style="font-size: 20px">%</sup></h3> -->
 
                 <p>Hospital</p>
+                &nbsp;  <b style="color:white">{{$hospital}}</b>
+
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
@@ -67,6 +71,8 @@ Home | Feni Doctor
                 <!-- <h3>44</h3> -->
 
                 <p>Blood</p>
+                &nbsp;  <b style="color:black">{{$blooddonor}}</b>
+
               </div>
               <div class="icon">
                 <i class="ion ion-person-add"></i>
@@ -82,6 +88,8 @@ Home | Feni Doctor
                 <!-- <h3>65</h3> -->
 
                 <p>Police</p>
+                &nbsp;  <b style="color:white">{{$police}}</b>
+
               </div>
               <div class="icon">
                 <i class="ion ion-pie-graph"></i>
@@ -97,6 +105,8 @@ Home | Feni Doctor
                 <!-- <h3>53<sup style="font-size: 20px">%</sup></h3> -->
 
                 <p>Fire Servece</p>
+                &nbsp;  <b style="color:white">{{$fireservice}}</b>
+
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
@@ -112,6 +122,8 @@ Home | Feni Doctor
                 <!-- <h3>53<sup style="font-size: 20px">%</sup></h3> -->
 
                 <p>Doctor</p>
+                &nbsp;  <b style="color:white">{{$doctor}}</b>
+
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
