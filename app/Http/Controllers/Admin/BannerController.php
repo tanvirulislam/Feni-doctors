@@ -28,7 +28,7 @@ class BannerController extends Controller
         $imageName = $productImage->getClientOriginalName();
         $directory = 'public/upload/';
         $imageUrl = $directory.$imageName;
-        Image::make($productImage)->resize(400,400)->save($imageUrl);
+        Image::make($productImage)->save($imageUrl);
         return $imageUrl;
     }
     
@@ -48,7 +48,8 @@ class BannerController extends Controller
 
        $data = array();
        $data['image']= $image;
-
+       $data['status']=$request->status;
+       $data['situation']=$request->situation;
        $query_insert = DB::table('tbl_image')->insert($data);
 
        
@@ -75,13 +76,14 @@ class BannerController extends Controller
             $file = $request->file('image');
             $extension = $file->getClientOriginalExtension();
             $filename=time().'.'.$extension;
-            $file->move('user-photo/',$filename);
+            $file->move('public/upload/',$filename);
+            $updateImage ='public/upload/'.$filename;
 
             DB::table('tbl_image')->where('id', $request->id)->update([
-
                
-                'image'=>$filename,
+                'image'=>$updateImage,
                 'status'=>$request->status,
+                'situation'=>$request->situation,
                 
             ]);
 
@@ -90,6 +92,7 @@ class BannerController extends Controller
             DB::table('tbl_image')->where('id', $request->id)->update([
 
                 'status'=>$request->status,
+                'situation'=>$request->situation,
 
            ]);
 

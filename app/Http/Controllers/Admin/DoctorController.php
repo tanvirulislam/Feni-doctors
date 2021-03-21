@@ -13,16 +13,19 @@ class DoctorController extends Controller
 {
     public function index()
     {   
+        $chamber = DB::table('chambers')->get();
         $categories= DB::table('tbl_category')->get();
         $doctor= DB::table('tbl_doctor')->orderBy('id', 'DESC')->get();
 
-       return view('admin.add_doctor.index',['doctor'=>$doctor, 'categories'=>$categories]);
+       return view('admin.add_doctor.index',['doctor'=>$doctor, 'categories'=>$categories,
+        'chamber'=>$chamber]);
     }
 
    
     public function create()
     {
         $categories= DB::table('tbl_category')->get();
+       
         return view('admin.add_doctor.create', compact('categories'));
     }
 

@@ -30,7 +30,7 @@
       <div class="card" style="">
         
       <div class="card-body">
-        <form method="post" action="{{route('admin.category.update')}}">
+        <form method="post" action="{{route('admin.category.update')}}" enctype="multipart/form-data">
             @csrf
 
             <input type="hidden" name="id" value="{{$category->id}}" class="form-control" id="exampleFormControlInput1">

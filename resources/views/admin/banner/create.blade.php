@@ -37,7 +37,21 @@ Banner
                     <label for="exampleFormControlFile1">ছবি</label>
                     <input type="file" name="image" class="form-control-file" id="exampleFormControlFile1">
                 </div>
-
+                <div class="form-group">
+                    <label for="exampleFormControlFile1">Position</label><br>
+                <div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="situation" id="inlineRadio1" value="1">
+  <label class="form-check-label" for="inlineRadio1">First  Slide</label>
+</div>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="situation" id="inlineRadio2" value="2">
+  <label class="form-check-label" for="inlineRadio2">Second Slide</label>
+</div>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="situation" id="inlineRadio3" value="3">
+  <label class="form-check-label" for="inlineRadio3">Third Slide</label>
+</div>
+</div>
                 <div class="form-group">
             <label for="exampleFormControlSelect1">অবস্থা</label>
             <select name="status" class="form-control" id="exampleFormControlSelect1">

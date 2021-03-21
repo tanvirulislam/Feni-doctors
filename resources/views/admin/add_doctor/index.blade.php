@@ -71,7 +71,16 @@ Add doctor
                     <td>{{$doctors->working_place}}</td>
                     <td>{{$doctors->specialist}}</td>
                     <td>{{$doctors->reg_no}}</td>
-                    <td>{{$doctors->chamber}}</td>
+                    <td>
+                     
+                    @foreach($chamber as $chambers)
+                    @if($chambers->doctor_id == $doctors->id)
+                    {{$chambers->more_chamber}}
+                    @endif
+                    @endforeach
+                    {{$doctors->chamber}}
+                    
+                    </td>
                     
 
                     <td>

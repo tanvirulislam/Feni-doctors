@@ -1,0 +1,2 @@
+[19-Mar-2021 12:53:47 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 7.3.0". You are running 7.2.34. in /home/formulaw/public_html/fenidoctors.info/vendor/composer/platform_check.php on line 24
+[19-Mar-2021 12:56:13 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 7.3.0". You are running 7.2.34. in /home/formulaw/public_html/fenidoctors.info/vendor/composer/platform_check.php on line 24

@@ -73,16 +73,17 @@ class CategoryController extends Controller
     public function update(Request $request)
     {
 
-        if($request->hasfile('image')){
-            $file = $request->file('image');
+        if($request->hasfile('cat_img')){
+            $file = $request->file('cat_img');
             $extension = $file->getClientOriginalExtension();
             $filename=time().'.'.$extension;
-            $file->move('user-photo/',$filename);
+            $file->move('public/upload/',$filename);
+            $updateImage ='public/upload/'.$filename;
 
             DB::table('tbl_category')->where('id', $request->id)->update([
 
                 'cat_name'=>$request->cat_name, 
-                'cat_img'=>$filename
+                'cat_img'=>$updateImage
                 
             ]);
 

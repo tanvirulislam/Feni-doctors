@@ -168,7 +168,7 @@ a.navbar-brand i {
 /*--/banner-info--*/
 
 .slide {
-    background: url(../images/bg1.jpg) no-repeat center;
+    
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -178,7 +178,7 @@ a.navbar-brand i {
 }
 
 .slide2 {
-    background: url(../images/bg2.jpg) no-repeat center;
+    
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -188,7 +188,7 @@ a.navbar-brand i {
 }
 
 .slide3 {
-    background: url(../images/bg3.jpg) no-repeat center;
+    
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -356,7 +356,7 @@ h4.sub-title {
     font-size: 2em;
 }
 section.departments{
-	background: url(../images/bg2.jpg) no-repeat 0px 0px;
+	/* background: url(../images/bg2.jpg) no-repeat 0px 0px; */
 	background-size: cover;
     -webkit-background-size: cover;
     -o-background-size: cover;
@@ -365,7 +365,7 @@ section.departments{
 	background-attachment: fixed;
 }
 .departments-1.py-lg-5 {
-    background: rgba(51, 50, 50, 0.68);
+    /* background: rgba(51, 50, 50, 0.68); */
 }
 /*-- stats --*/
 .about {   
@@ -389,7 +389,7 @@ h3.subheading-w3-agile {
 .about-main {
     background:#02646f;
     padding: 4em 4em;
-    width: 50%;
+    width: 100%;
 }
 form.register-wthree .form-control {
     background: #ffffff;
@@ -1292,7 +1292,7 @@ h4.sub-title {
     width: 90%;
 }
 .slide, .slide2, .slide3 {
-    height: 70vw;
+    height: 100vw;
 }
 }
 
@@ -1368,3 +1368,27 @@ h3.subheading-w3-agile {
 }
 
 /* -- //Responsive code -- */
+
+.slider_height{
+    height:480px;
+}
+
+/* // Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) { 
+    .slider_height{
+        height:377px;
+    }
+    
+ }
+
+/* // Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {  }
+
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {  }
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {  }
+
+/* // Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {  }

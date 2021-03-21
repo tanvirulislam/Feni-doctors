@@ -27,6 +27,39 @@ Route::get('/clear', function() {
 // });
 
 Route::get('/', 'Front\FrontController@front')->name('index');
+Route::get('/doctor', 'Front\FrontController@search_doctor')->name('search_doctor');
+Route::get('/contact', 'Front\FrontController@contact')->name('contact');
+
+Route::get('/all/ambulance', 'Front\FrontController@ambulance')->name('alloambulance');
+Route::get('/ambulance-add', 'Front\FrontController@ambulance_create')->name('ambulance_create');
+Route::post('/ambulance-store', 'Front\FrontController@ambulance_store')->name('ambulance_store');
+
+Route::get('/all/fireservice', 'Front\FrontController@fireservice')->name('fireservice');
+Route::get('/fireservice-add', 'Front\FrontController@fireservicee_create')->name('fireservice_create');
+Route::post('/fireservice-store', 'Front\FrontController@fireservice_store')->name('fireservice_store');
+
+Route::get('/all/hospital', 'Front\FrontController@hospital')->name('hospital');
+Route::get('/hospital-add', 'Front\FrontController@hospital_create')->name('hospital_create');
+Route::post('/hospital-store', 'Front\FrontController@hospital_store')->name('hospital_store');
+
+Route::get('/all/police', 'Front\FrontController@police')->name('police');
+Route::get('/police-add', 'Front\FrontController@police_create')->name('police_create');
+Route::post('/police-store', 'Front\FrontController@police_store')->name('police_store');
+
+Route::get('/all/blood', 'Front\FrontController@blood')->name('blood');
+Route::get('/blood-add', 'Front\FrontController@blood_create')->name('blood_create');
+Route::post('/blood-store', 'Front\FrontController@blood_store')->name('blood_store');
+
+Route::get('/add-doctor', 'Front\FrontController@add_doctor')->name('add_doctor');
+Route::post('/doctor-store', 'Front\FrontController@doctor_store')->name('doctor_store');
+
+Route::get('/blood-group', 'Front\FrontController@blood_group')->name('blood_group');
+
+Route::get('/blood-donate', 'Front\FrontController@blood_donate')->name('blood_donate');
+Route::get('/groupwise-blood-donate/{id}', 'Front\FrontController@groupwise_blood_donate')->name('groupwise_blood_donate');
+Route::get('/blood-donate-create', 'Front\FrontController@blood_donate_create')->name('blood_donate_create');
+Route::post('/blood-donate-store', 'Front\FrontController@blood_donate_store')->name('blood_donate_store');
+
 
 
 Auth::routes();
