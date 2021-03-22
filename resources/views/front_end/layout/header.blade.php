@@ -1,32 +1,37 @@
-<!-- header -->
-<header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-gradient-secondary">
-    <h1>
-      <a style="text-shadow: 0px 1px 3px black;" class="navbar-brand text-white" href="{{route('index')}}">
-       Feni Doctors
-     </a>
-   </h1>
-   <button class="navbar-toggler ml-md-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-   aria-expanded="false" aria-label="Toggle navigation">
-   <span class="navbar-toggler-icon"></span>
- </button>
- <div class="collapse navbar-collapse" id="navbarSupportedContent">
-  <ul style="text-shadow: 0px 1px 3px black;" class="navbar-nav ml-lg-auto text-center">
-    <li class="nav-item active  mr-3 mt-lg-0 mt-3">
-      <a class="nav-link" href="{{route('index')}}">Home
-        <span class="sr-only">(current)</span>
-      </a>
-    </li>
-   
-    
-  
-  <li class="nav-item">
-    <a class="nav-link" href="{{ route('contact') }}">Contact</a>
-  </li>
-  <li>
-    <a href="{{route('add_doctor')}}" style="background-color: transparent;border-color: #ed914a;" type="button" class="btn btn-primary">Add doctor</a>
-  </li>
-</ul>
-</div>
-</nav>
+<header style="background-image: linear-gradient(to right, #008BCC, #10D2CA); color:white">
+   <div class="content_weapper container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="social_icon">
+          <i class="icon_class fab fa-facebook-square"></i>
+          <i class="icon_class  far fa-envelope"></i>
+          <i class="icon_class fas fa-phone-square-alt"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <nav class="navbar navbar-expand-lg navbar-light" >
+    <div class="container">
+      <a style="color:white !important; font-weight: 900;" class="navbar-brand" href="#">FENI DOCTORS <span style="font-weight: 100;">INFO</span></a>
+      <button  class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon" ></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0" >
+          <li class="nav-item">
+            <a style="color:white !important" class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a style="color:white !important" class="nav-link" href="#">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a style="color:white !important" class="nav-link" href="#">Add doctors</a>
+          </li>
+          
+          
+        </ul>
+        
+      </div>
+    </div>
+  </nav>
 </header>

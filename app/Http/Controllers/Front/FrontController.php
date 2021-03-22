@@ -24,17 +24,18 @@ class FrontController extends Controller
         return view('front_end.index', compact('doctor', 'firstSlide', 'secondSlide', 'thirdSlide', 'category'));
     }
 
-    public function search_doctor($id){
-        
+    public function search_doctor(Request $request){
+       
         $chamber = DB::table('chambers')->get();
         $categories= DB::table('tbl_category')->get();
         $firstSlide = DB::table('tbl_image')->where('situation',1)->where('status',1)->first();
         $secondSlide = DB::table('tbl_image')->where('situation',2)->where('status',1)->first();
         $thirdSlide = DB::table('tbl_image')->where('situation',3)->where('status',1)->first();
-
-        $doctor = DB::table('tbl_doctor')->where('status', 1)->where('category',$id)->get();
+        
+        $doctor = DB::table('tbl_doctor')->where('status', 1)->where('category',$request->search)->get();
 
         return view('front_end.doctor_info', compact('chamber', 'doctor', 'categories', 'firstSlide', 'secondSlide', 'thirdSlide'));
+        dd('ok');
 
     }
 
