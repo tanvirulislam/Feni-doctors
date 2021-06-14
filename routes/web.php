@@ -89,7 +89,17 @@ Route::group(['as'=>'admin.','prefix'=>'admin','namespace'=>'Admin','middleware'
     Route::get('/doctor/edit/{id}','DoctorController@edit')->name('doctor.edit');
     Route::post('/doctor/update/','DoctorController@update')->name('doctor.update');
     Route::post('/doctor/delete/{id}','DoctorController@destroy')->name('doctor.delete');
+    
+    Route::get('/chamber/edit/{id}','DoctorController@edit_chember')->name('edit_chember');
+    Route::post('/chamber/update/','DoctorController@update_chember')->name('update_chember');
 
+     // customeze doctor list
+     Route::get('/customize-doctor-list', 'DoctorController@customize_doc_list')->name('customize_doc_list');
+     Route::post('/update-items', 'DoctorController@updateItems')->name('update.items');
+
+    //  search_doctor
+    Route::get('search', 'DoctorController@search')->name('search');
+ 
     Route::get('/hospital','HospitalController@index')->name('hospital');
     Route::get('/hospital/add','HospitalController@create')->name('hospital.create');
     Route::post('/hospital/store','HospitalController@store')->name('hospital.store');

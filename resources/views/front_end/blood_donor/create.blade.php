@@ -1,4 +1,4 @@
-@extends('front_end.master.master')
+@extends('front_end.master.master2')
 
 @section('title')
 Blood donor
@@ -8,37 +8,23 @@ Blood donor
 
 <div class="content-wrapper">
 
-<section class="content-header">
-  <div class="container-fluid">
-    <div class="row mb-2">
-      <div class="col-sm-6">
-        <h1>রক্তদাতা</h1>
-      </div>
-      <div class="col-sm-6">
-        <ol class="breadcrumb float-sm-right">
-          <li class="breadcrumb-item"><a href="#">Home</a></li>
-          <li class="breadcrumb-item active">রক্তদাতা</li> 
 
-        </ol>
-      </div>
-    </div>
-  </div>
-</section>
 
 <section class="content"> 
   <div class="container-fluid">
     <div class="row">
      <div class="col-md-12">
-      <div class="card" style="">
+      <div class="card" style="font-family: bangla;">
         <div class="card-body">
         <form method="post" action="{{route('blood_donate_store')}}" enctype="multipart/form-data">
           @csrf
 
           <div class="form-group">
             <label for="exampleFormControlSelect1">রক্তের গ্রুপ</label>
-            <select name="blood_group" class="form-control" id="exampleFormControlSelect1">
+            <select id="select" name="blood_group" class="form-control" id="exampleFormControlSelect1">
+            <option style="font-family: bangla; font-size:20px"  data-image="{{asset('/')}}public/front_end/img/down_arrow.png" >রক্তের গ্রুপ বাছাই করুন </option>
               @foreach($blood_group as $catagory)
-              <option value="{{$catagory->id}}">{{$catagory->name}}</option>
+              <option style="font-family: bangla; font-size:20px" value="{{$catagory->id}}" >{{$catagory->name}}</option>
               @endforeach
               
             </select>
@@ -51,7 +37,7 @@ Blood donor
 
           <div class="form-group">
             <label for="exampleFormControlInput1">ঠিকানা</label>
-            <textarea class="textarea" name="address" required placeholder="ঠিকানা" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+            <textarea class="textarea" name="address" required placeholder="ঠিকানা" style="width: 100%; height: 100px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
           </div>
 
           
@@ -61,7 +47,7 @@ Blood donor
           </div>
 
          
-          
+          <br>
           <button type="submit" class="btn btn-success">Submit</button>
 
           

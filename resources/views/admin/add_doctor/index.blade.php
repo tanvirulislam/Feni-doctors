@@ -28,11 +28,13 @@ Add doctor
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
-          <div class="card" style="">
+          <div class="card" style="font-family: bangla;">
             <div class="card-header">
               <div class="row">
                 <div class="col-md-3">
                   <a href="{{route('admin.doctor.create')}}" type="button" class="btn btn-success">Add </a>
+                  <a href="{{route('admin.customize_doc_list')}}" type="button" class="btn btn-success">Customize doctor list </a>
+
                 </div>
               </div>
             </div>
@@ -49,6 +51,7 @@ Add doctor
                     <th scope="col">কোন বিষয়ে বিশেষজ্ঞ</th>
                     <th scope="col">বিএমডিসি রেজি. নং:</th>
                     <th scope="col">চেম্বার</th>
+                    <th scope="col">অবস্থা</th>
                     <th scope="col">পরিচালনা</th>
                   </tr>
                 </thead>
@@ -66,20 +69,27 @@ Add doctor
                       @endif
                       @endforeach
                     </td>
-                    <td>{{$doctors->degree}}</td>
-                    <td>{{$doctors->designation}}</td>
-                    <td>{{$doctors->working_place}}</td>
-                    <td>{{$doctors->specialist}}</td>
-                    <td>{{$doctors->reg_no}}</td>
+                    <td>{!!$doctors->degree!!}</td>
+                    <td>{!!$doctors->designation!!}</td>
+                    <td>{!!$doctors->working_place!!}</td>
+                    <td>{!!$doctors->specialist!!}</td>
+                    <td>{!!$doctors->reg_no!!}</td>
                     <td>
                      
                     @foreach($chamber as $chambers)
                     @if($chambers->doctor_id == $doctors->id)
-                    {{$chambers->more_chamber}}
+                    {!!$chambers->more_chamber!!},
                     @endif
                     @endforeach
-                    {{$doctors->chamber}}
+                    {!!$doctors->chamber!!}
                     
+                    </td>
+                     <td>
+                      @if($doctors->status == 1)
+                      Active
+                      @else
+                      Pending
+                      @endif
                     </td>
                     
 

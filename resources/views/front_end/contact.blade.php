@@ -9,32 +9,29 @@ Blood donor
 <div class="content-wrapper">
 
 
-
     <section class="content"> 
+<br>
+
     <div class="container-fluid">
         <div class="row">
         <div class="col-md-12">
-        <div class="card" style="">
+        <div class="card" style="background-image: linear-gradient(to right, #008BCC, #10D2CA);">
             <div class="card-header">
             <div class="row">
-            <div class="col-md-12">
-            <center>Contact Information</center>
+            <div class="col-md-12 text-center">
+           <h4> Contact Information</h4>
             </div>
         </div>
         </div>
         <div class="card-body">
-       <div class="row">
-          <div class="col-sm-4 col-xs-12">
-            
-          </div>
-           <div class="col-sm-4 col-xs-12" style="margin-top:10px;margin-bottom:10px;">
-           
-            <h4 style="padding:5px;box-shadow:0 0 2px 3px gray;border-radius:5px;"> <span class="fa fa-google"></span> fenidoctors.info@gmail.com</h4>
-             <h4 style="padding:5px;box-shadow:0 0 2px 3px gray;border-radius:5px;margin-top: 8px;"><a href="https://www.facebook.com/fenidoctors.info/" style="color:black"><span class="fa fa-facebook"></span> www.facebook.com/fenidoctors.info</a></h4>
-            
-          </div>
-           <div class="col-sm-4 col-xs-12">
-              
+       <div class="row " >
+          <div class="col-md-12 text-center ">
+
+          <a style="" href="https://www.facebook.com/fenidoctors.info"><img class="contact_socal_link" src="{{ asset('/')}}public/front_end/img/fb.png" alt="image"></a>
+          <a style=" " href="tel:01878072344"><img class="contact_socal_link" src="{{ asset('/')}}public/front_end/img/call.png" alt="image"></a>
+          <a style=" " href = "mailto:  fenidoctors.info@gmail.com"><img class="contact_socal_link" src="{{ asset('/')}}public/front_end/img/mail.png" alt="image"></a>
+
+         
           </div>
       </div>
         </div>
@@ -42,7 +39,7 @@ Blood donor
     </div>
     </div>
     </div>
-
+<br>
     </section>
 
 <script type="text/javascript">

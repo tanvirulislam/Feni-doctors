@@ -1,6 +1,6 @@
 @extends('admin.master.master')
 @section('title')
-বিভাগ
+ডাক্তার
 @endsection
 
 @section('body')
@@ -10,12 +10,13 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1>বিভাগ</h1>
+        <h1>ডাক্তার</h1> <br>
+        <span><a href="{{route('admin.edit_chember', $doctor->id)}}" class="btn btn-primary" type="button">Edit chamber</a></span>
       </div>
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="#">Home</a></li>
-          <li class="breadcrumb-item active">বিভাগ</li> 
+          <li class="breadcrumb-item active">ডাক্তার</li> 
 
         </ol>
       </div>
@@ -92,26 +93,33 @@
               </div>
 
               <div class="form-group" > 
-                <label for="exampleFormControlInput1">চেম্বার</label>&nbsp <span><i class="fas fa-plus-square"onclick="createNewElement();"></i></span>
+                <label for="exampleFormControlInput1">চেম্বার</label>
+                <!-- &nbsp <span><i class="fas fa-plus-square"onclick="createNewElement();"></i></span> -->
                 
                  
-                <textarea class="textarea" name="chamber" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
-                {!!$doctor->chamber!!}
-                </textarea>
+                <!-- <textarea class="textarea" name="chamber" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"> -->
+               <p> @foreach($chamber as $chambers)
+                    @if($chambers->doctor_id == $doctor->id)
+                    {!!$chambers->more_chamber!!}
+                    @endif
+                    @endforeach
+                    {!!$doctor->chamber!!}
+                    </p>
+                <!-- </textarea> -->
               </div>
 
               <!-- <div id="dynamicCheck">
                 <input type="button" value="Create Element" onclick="createNewElement();" />
               </div> -->
               
-                <div  id="newElementId">More Chamber</div>
+                <!-- <div  id="newElementId">More Chamber</div> -->
                 
               <br>
               <div class="form-group">
                 <label for="exampleFormControlSelect1">Status</label>
                 <select name="status" class="form-control" id="exampleFormControlSelect1" >
                   <option value="1" {{ $doctor->status == 1 ? 'selected' : '' }}>Active</option>
-                  <option value="0" {{ $doctor->status == 0 ? 'selected' : '' }}>Inactive</option>
+                  <option value="0" {{ $doctor->status == 0 ? 'selected' : '' }}>Pending</option>
                   
                 </select>
               </div>

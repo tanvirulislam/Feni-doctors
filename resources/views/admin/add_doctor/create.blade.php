@@ -75,9 +75,8 @@ Doctor add
               </div>
 
               <div class="form-group">
-                <label for="exampleFormControlInput1">বিএমডিসি রেজি. নং:</label>
-                <textarea class="textarea" name="reg_no" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
-                </textarea>
+                <!--<label for="exampleFormControlInput1">বিএমডিসি রেজি. নং:</label>-->
+                <textarea class="textarea" name="reg_no" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">বিএমডিসি রেজি. নং এ- &nbsp;</textarea>
               </div>
 
               <div class="form-group" > 
@@ -95,7 +94,7 @@ Doctor add
                 <label for="exampleFormControlSelect1">Status</label>
                 <select name="status" class="form-control" id="exampleFormControlSelect1" >
                   <option value="1">Active</option>
-                  <option value="0">Inactive</option>
+                  <option value="0">Pending</option>
                   
                 </select>
               </div>
@@ -121,7 +120,7 @@ function createNewElement() {
 	var txtNewInputBox = document.createElement('div');
 
     // Then add the content (a new input box) of the element.
-	txtNewInputBox.innerHTML = '<textarea class="textarea" name="chamber[]" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">'
+	txtNewInputBox.innerHTML = '<textarea class="textarea" name="chamber[]" placeholder="Place some text here" style="width: 100%; height: 100px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">'
                
                 '</textarea>';
 

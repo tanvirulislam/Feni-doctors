@@ -7,7 +7,7 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="csrf-token" content="{{ csrf_token() }}">
- <link href="{{ asset('/') }}public/front/icon.png" rel="shortcut icon"/>
+  <link href="{{ asset('/') }}public/front/icon.png" rel="shortcut icon"/>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="{{asset('/')}}public/admin/plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
@@ -26,6 +26,9 @@
   <link rel="stylesheet" href="{{asset('/')}}public/admin/plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="{{asset('/')}}public/admin/plugins/summernote/summernote-bs4.css">
+  <!-- style -->
+  <link rel="stylesheet" href="{{asset('/')}}public/admin/dist/css/style.css">
+
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <!-- DataTables -->
@@ -33,11 +36,13 @@
    <link rel="stylesheet" href="https://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
    <link rel="stylesheet" href="{{asset('/')}}public/admin/simple-calendar.css">
    <!-- jQuery -->
-<script src="{{asset('/')}}public/admin/plugins/jquery/jquery.min.js"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="{{asset('/')}}public/admin/plugins/jquery-ui/jquery-ui.min.js"></script>
-<link href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css"/>
-    
+  <script src="{{asset('/')}}public/admin/plugins/jquery/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+  <link href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css"/>
+  <!-- jQuery UI 1.11.4 -->
+  <script src="{{asset('/')}}public/admin/plugins/jquery-ui/jquery-ui.min.js"></script>
+  <link href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css"/>
+      
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">

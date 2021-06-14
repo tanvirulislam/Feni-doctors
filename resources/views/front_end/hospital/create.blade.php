@@ -1,7 +1,7 @@
 @extends('front_end.master.master')
 
 @section('title')
-police
+হাসপাতাল
 @endsection
 
 @section('body')
@@ -11,7 +11,7 @@ police
      <div class="col-md-12">
       <div class="card" style="">
       <div class="card-header">
-<h3>পুলিশ সার্ভিস যোগ করুন</h3>
+<h3>হাসপাতাল যোগ করুন</h3>
         <div class="card-body">
         <form method="post" action="{{route('hospital_store')}}" enctype="multipart/form-data">
           @csrf

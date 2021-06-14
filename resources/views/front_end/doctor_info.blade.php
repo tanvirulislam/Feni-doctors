@@ -18,62 +18,67 @@ Doctor details
             <div class="card-header">
               <div class="row">
                 <div class="col-md-3">
-                  <!-- <a href="{{route('admin.doctor.create')}}" type="button" class="btn btn-success">Add </a> -->
                 </div>
               </div>
             </div>
-            <div class="card-body">
-                <div class = "table-responsive">
-              <table class="table table-bordered responsive" id="example1">
-                <thead>
-                  <tr>
-                    <th scope="col">ক্রমিক সংখ্যা</th>
-                    <th scope="col">নাম</th>
-                    <th scope="col">বিভাগ</th>
-                    <th scope="col">ডিগ্রি, পদবী, কর্মস্থল</th>
-                    
-                    <th scope="col">চেম্বার    </th>               
-                  
-                  </tr>
-                </thead>
-                <tbody >
 
-                  @php($i=1)
-                  @foreach($doctor as $doctors)
-                  <tr>
-                    <th scope="row">{{ $i++ }}</th>
-                    <td>{{$doctors->name}}</td>
-                    <td>
-                      @foreach($categories as $category)
-                      @if($category->id == $doctors->category)
-                      {{ $category->cat_name }}
-                      @endif
-                      @endforeach
-                    </td>
-                    <td>{{$doctors->degree}}{{$doctors->designation}}{{$doctors->working_place}}</td>
-                   
-                    <td>
-                    @foreach($chamber as $chambers)
-                    @if($chambers->doctor_id == $doctors->id)
-                    {{$chambers->more_chamber}}
-                    @endif
+
+           
+            <div class="row ">
+                    <b style="font-family: bangla;" class="card-title text-center  mt-2">    
+                    {{$departmentName}}
+                              </b>
+                    @php($i=1)
+                    @foreach($doctor as $doctors)
+                    <div class="col-md-4 col-lg-3 pt-2 pb-2" >
+                        <div class="card" style="">
+                            <div class="card-body" style="font-family: bangla; line-height: 1;">
+
+                              <div class="row">
+                                  <div class="col-3 col-md-4">
+                                       <b class="text_gradient">নাম: {{$doctors->dr}}</b>
+                                     </div>
+                                    <div class="col-9 col-md-8">
+                                       <p class="doc_info_p" ><b>{{$doctors->name}}</b> </p>
+                                      </div>
+                                </div>
+                               
+
+                                <div class="row">
+                                  <div class="col-3 col-md-4">
+                                      <b class="text_gradient">ডিগ্রি,<br>পদবী ও<br>কর্মস্থল: </b>
+                                     </div>
+                                    <div class="col-9 col-md-8">
+                                      <p class="doc_info_p">  {!!$doctors->degree!!}</p> <p class="doc_info_p">  {{$doctors->designation}} </p>
+                                      <p class="doc_info_p">  {!!$doctors->working_place!!} </p>
+                                      <p class="doc_info_p"><b>{!!$doctors->specialist!!}</b></p> <p class='doc_info_p'>{{$doctors->reg_no}}</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                  <div class="col-3 col-md-4">
+                                       <b class="text_gradient">চেম্বার: </b>
+                                     </div>
+                                    <div class="col-9 col-md-8">
+                                    @foreach($chamber as $chambers)
+                                    @if($chambers->doctor_id == $doctors->id)
+                                    {!!$chambers->more_chamber!!}
+                                    @endif
+                                    @endforeach
+                                    <p class="doc_info_p"> {!!$doctors->chamber!!}</p>
+                                    <p class="doc_info_p"> {{$doctors->time}}</p>
+                                    <p class="doc_info_p"> {{$doctors->mobile}}</p>
+                                    <p class="doc_info_p"> {{$doctors->chamber_location}}</p>
+                                      </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
                     @endforeach
-                    <b>{{$doctors->chamber}}</b><br>
-                    {{$doctors->time}},<br>
-                    {{$doctors->mobile}},<br>
-                    {{$doctors->chamber_location}}
+                    </div>
 
-                    </td>
-                    
 
-                    
-                  </tr>
-                  @endforeach
-                </tbody>
-                
-              </table>
-             </div>
-            </div>
           </div>
         </div>
       </div>

@@ -18,10 +18,10 @@ class FrontController extends Controller
         $secondSlide = DB::table('tbl_image')->where('situation',2)->where('status',1)->first();
         $thirdSlide = DB::table('tbl_image')->where('situation',3)->where('status',1)->first();
 
-        $category = DB::table('tbl_category')->get();
+        $banner = DB::table('tbl_category')->get();
         $doctor = DB::table('tbl_doctor')->where('status', 1)->get();
 
-        return view('front_end.index', compact('doctor', 'firstSlide', 'secondSlide', 'thirdSlide', 'category'));
+        return view('front_end.index', compact('doctor', 'firstSlide', 'secondSlide', 'thirdSlide', 'banner'));
     }
 
     public function search_doctor(Request $request){
@@ -31,11 +31,13 @@ class FrontController extends Controller
         $firstSlide = DB::table('tbl_image')->where('situation',1)->where('status',1)->first();
         $secondSlide = DB::table('tbl_image')->where('situation',2)->where('status',1)->first();
         $thirdSlide = DB::table('tbl_image')->where('situation',3)->where('status',1)->first();
-        
-        $doctor = DB::table('tbl_doctor')->where('status', 1)->where('category',$request->search)->get();
+        $banner = DB::table('tbl_category')->get();
+        $doctor = DB::table('tbl_doctor')->where('status', 1)->where('category',$request->search)->orderBy('dr', 'ASC')->get();
+        $departmentName =DB::table('tbl_category')->where('id',$request->search)->value('cat_name');
 
-        return view('front_end.doctor_info', compact('chamber', 'doctor', 'categories', 'firstSlide', 'secondSlide', 'thirdSlide'));
-        dd('ok');
+        $doctorr = DB::table('tbl_doctor')->where('status', 1)->first();
+
+        return view('front_end.doctor_info', compact('departmentName','doctorr','chamber','banner', 'doctor', 'categories', 'firstSlide', 'secondSlide', 'thirdSlide'));
 
     }
 
@@ -44,23 +46,24 @@ class FrontController extends Controller
     {   
         $categories= DB::table('tbl_ambulance')->orderBy('id', 'DESC')->get();
         $Doctorcategory = DB::table('tbl_category')->get();
-        //dd($Doctorcategory);
+        $banner = DB::table('tbl_category')->get();
+
         $firstSlide = DB::table('tbl_image')->where('situation',1)->where('status',1)->first();
         $secondSlide = DB::table('tbl_image')->where('situation',2)->where('status',1)->first();
         $thirdSlide = DB::table('tbl_image')->where('situation',3)->where('status',1)->first();
 
        return view('front_end.ambulance.test',['categories'=>$categories,'Doctorcategory'=>$Doctorcategory,'firstSlide'=>$firstSlide,
-       'secondSlide'=>$secondSlide,'thirdSlide'=>$thirdSlide]);
+       'secondSlide'=>$secondSlide,'thirdSlide'=>$thirdSlide, 'banner'=>$banner]);
     }
 
    
     public function ambulance_create()
     {
-        //dd($Doctorcategory);
+        $banner = DB::table('tbl_category')->get();
         $firstSlide = DB::table('tbl_image')->where('situation',1)->where('status',1)->first();
         $secondSlide = DB::table('tbl_image')->where('situation',2)->where('status',1)->first();
         $thirdSlide = DB::table('tbl_image')->where('situation',3)->where('status',1)->first();
-        return view('front_end.ambulance.create', compact('firstSlide', 'secondSlide', 'thirdSlide'));
+        return view('front_end.ambulance.create', compact('firstSlide', 'secondSlide', 'thirdSlide', 'banner'));
     }
 
     
@@ -90,23 +93,25 @@ class FrontController extends Controller
     {   
         $categories= DB::table('tbl_fireservice')->orderBy('id', 'DESC')->get();
         $Doctorcategory = DB::table('tbl_category')->get();
-        //dd($Doctorcategory);
+        $banner = DB::table('tbl_category')->get();
+        
         $firstSlide = DB::table('tbl_image')->where('situation',1)->where('status',1)->first();
         $secondSlide = DB::table('tbl_image')->where('situation',2)->where('status',1)->first();
         $thirdSlide = DB::table('tbl_image')->where('situation',3)->where('status',1)->first();
 
        return view('front_end.fireservice.test',['categories'=>$categories,'Doctorcategory'=>$Doctorcategory,'firstSlide'=>$firstSlide,
-       'secondSlide'=>$secondSlide,'thirdSlide'=>$thirdSlide]);
+       'secondSlide'=>$secondSlide,'thirdSlide'=>$thirdSlide, 'banner'=>$banner]);
     }
 
    
     public function fireservicee_create()
     {
-        //dd($Doctorcategory);
+        $banner = DB::table('tbl_category')->get();
+        
         $firstSlide = DB::table('tbl_image')->where('situation',1)->where('status',1)->first();
         $secondSlide = DB::table('tbl_image')->where('situation',2)->where('status',1)->first();
         $thirdSlide = DB::table('tbl_image')->where('situation',3)->where('status',1)->first();
-        return view('front_end.fireservice.create', compact('firstSlide', 'secondSlide', 'thirdSlide'));
+        return view('front_end.fireservice.create', compact('firstSlide', 'secondSlide', 'thirdSlide', 'banner'));
     }
 
     
@@ -137,24 +142,26 @@ class FrontController extends Controller
     {   
         $categories= DB::table('tbl_police')->orderBy('id', 'DESC')->get();
         $Doctorcategory = DB::table('tbl_category')->get();
-        //dd($Doctorcategory);
+        $banner = DB::table('tbl_category')->get();
+        
         $firstSlide = DB::table('tbl_image')->where('situation',1)->where('status',1)->first();
         $secondSlide = DB::table('tbl_image')->where('situation',2)->where('status',1)->first();
         $thirdSlide = DB::table('tbl_image')->where('situation',3)->where('status',1)->first();
 
        return view('front_end.police.test',['categories'=>$categories,'Doctorcategory'=>$Doctorcategory,'firstSlide'=>$firstSlide,
-       'secondSlide'=>$secondSlide,'thirdSlide'=>$thirdSlide]);
+       'secondSlide'=>$secondSlide,'thirdSlide'=>$thirdSlide, 'banner'=>$banner]);
     }
 
    
     public function police_create()
     {
-        //dd($Doctorcategory);
+        $banner = DB::table('tbl_category')->get();
+
         $firstSlide = DB::table('tbl_image')->where('situation',1)->where('status',1)->first();
         $secondSlide = DB::table('tbl_image')->where('situation',2)->where('status',1)->first();
         $thirdSlide = DB::table('tbl_image')->where('situation',3)->where('status',1)->first();
 
-        return view('front_end.police.create', compact('firstSlide', 'secondSlide', 'thirdSlide'));
+        return view('front_end.police.create', compact('firstSlide', 'secondSlide', 'thirdSlide', 'banner'));
     }
 
     
@@ -186,24 +193,26 @@ class FrontController extends Controller
     {   
         $categories= DB::table('tbl_hospital')->orderBy('id', 'DESC')->get();
         $Doctorcategory = DB::table('tbl_category')->get();
-        //dd($Doctorcategory);
+        $banner = DB::table('tbl_category')->get();
+        
         $firstSlide = DB::table('tbl_image')->where('situation',1)->where('status',1)->first();
         $secondSlide = DB::table('tbl_image')->where('situation',2)->where('status',1)->first();
         $thirdSlide = DB::table('tbl_image')->where('situation',3)->where('status',1)->first();
 
        return view('front_end.hospital.test',['categories'=>$categories,'Doctorcategory'=>$Doctorcategory,'firstSlide'=>$firstSlide,
-       'secondSlide'=>$secondSlide,'thirdSlide'=>$thirdSlide]);
+       'secondSlide'=>$secondSlide,'thirdSlide'=>$thirdSlide, 'banner'=>$banner]);
     }
 
    
     public function hospital_create()
     {
-        //dd($Doctorcategory);
+        $banner = DB::table('tbl_category')->get();
+        
         $firstSlide = DB::table('tbl_image')->where('situation',1)->where('status',1)->first();
         $secondSlide = DB::table('tbl_image')->where('situation',2)->where('status',1)->first();
         $thirdSlide = DB::table('tbl_image')->where('situation',3)->where('status',1)->first();
 
-        return view('front_end.hospital.create', compact('firstSlide', 'secondSlide', 'thirdSlide'));
+        return view('front_end.hospital.create', compact('firstSlide', 'secondSlide', 'thirdSlide', 'banner'));
     }
 
     
@@ -237,24 +246,16 @@ class FrontController extends Controller
         $secondSlide = DB::table('tbl_image')->where('situation',2)->where('status',1)->first();
         $thirdSlide = DB::table('tbl_image')->where('situation',3)->where('status',1)->first();
         $categories= DB::table('tbl_category')->get();
+        $banner = DB::table('tbl_category')->get();
+
        
-        return view('front_end.add_doc.create', compact('categories','firstSlide', 'secondSlide', 'thirdSlide'));
+        return view('front_end.add_doc.create', compact('categories','firstSlide', 'secondSlide', 'thirdSlide', 'banner'));
 
     }
 
     public function doctor_store(Request $request){
 
-        $request->validate([
-            'name' => 'required',
-            'category' => 'required',
-            'degree' => 'required',
-            'specialist' => 'required',
-            'reg_no' => 'required',
-            'chamber' => 'required',
-            'status' => 'required'
-
-        ]);
-
+    
        $data = array();
        $data['name']= $request->get('name');
        $data['category']= $request->get('category');
@@ -262,8 +263,8 @@ class FrontController extends Controller
        $data['designation']= $request->get('designation');
        $data['specialist']= $request->get('specialist');
        $data['reg_no']= $request->get('reg_no');
-       $data['status']= $request->get('status');
-
+       $data['status']= 0;
+//dd($request->chamber);
         DB::table('tbl_doctor')->insert($data);
 
         // $regi_no=$request->reg_no;
@@ -279,7 +280,7 @@ class FrontController extends Controller
        }
         Toastr::success('Successully Add 🙂' ,'Success');
 
-        return redirect()->back()->with('message','Registered succesfully');
+        return redirect()->route('index')->with('message','Registered succesfully');
 
     }
 
@@ -288,13 +289,16 @@ class FrontController extends Controller
     {   
         $categories= DB::table('tbl_bloodgroup')->orderBy('id', 'DESC')->get();
         $Doctorcategory = DB::table('tbl_category')->get();
-        //dd($Doctorcategory);
+        $banner = DB::table('tbl_category')->get();
+        
         $firstSlide = DB::table('tbl_image')->where('situation',1)->where('status',1)->first();
         $secondSlide = DB::table('tbl_image')->where('situation',2)->where('status',1)->first();
         $thirdSlide = DB::table('tbl_image')->where('situation',3)->where('status',1)->first();
 
        return view('front_end.blood.blood_group',['categories'=>$categories,'Doctorcategory'=>$Doctorcategory,'firstSlide'=>$firstSlide,
-       'secondSlide'=>$secondSlide,'thirdSlide'=>$thirdSlide]);
+       'secondSlide'=>$secondSlide,'thirdSlide'=>$thirdSlide,
+       'banner'=>$banner
+       ]);
     }
     
     // Blood donate----------------------------------------------------------------
@@ -303,6 +307,7 @@ class FrontController extends Controller
         $firstSlide = DB::table('tbl_image')->where('situation',1)->where('status',1)->first();
         $secondSlide = DB::table('tbl_image')->where('situation',2)->where('status',1)->first();
         $thirdSlide = DB::table('tbl_image')->where('situation',3)->where('status',1)->first();
+        $banner = DB::table('tbl_category')->get();
 
         $categories= DB::table('tbl_blooddonor')->orderBy('id', 'DESC')->get();
         $blood_group = DB::table('tbl_bloodgroup')->get();
@@ -310,7 +315,9 @@ class FrontController extends Controller
        return view('front_end.blood_donor.index',['categories'=>$categories, 'blood_group'=> $blood_group,
        'firstSlide'=> $firstSlide,
        'secondSlide'=> $secondSlide,
-       'thirdSlide'=> $thirdSlide]);
+       'thirdSlide'=> $thirdSlide,
+       'banner'=>$banner
+       ]);
     }
 
    
@@ -319,6 +326,7 @@ class FrontController extends Controller
         $firstSlide = DB::table('tbl_image')->where('situation',1)->where('status',1)->first();
         $secondSlide = DB::table('tbl_image')->where('situation',2)->where('status',1)->first();
         $thirdSlide = DB::table('tbl_image')->where('situation',3)->where('status',1)->first();
+        $banner = DB::table('tbl_category')->get();
 
         $categories= DB::table('tbl_blooddonor')->orderBy('id', 'DESC')->get();
         $blood_group = DB::table('tbl_bloodgroup')->get();
@@ -326,7 +334,9 @@ class FrontController extends Controller
         return view('front_end.blood_donor.create', ['categories'=>$categories, 'blood_group'=> $blood_group,
         'firstSlide'=> $firstSlide,
        'secondSlide'=> $secondSlide,
-       'thirdSlide'=> $thirdSlide]);
+       'thirdSlide'=> $thirdSlide,
+       'banner'=>$banner
+       ]);
 
     }
 
@@ -353,7 +363,7 @@ class FrontController extends Controller
        $query_insert = DB::table('tbl_blooddonor')->insert($data);
        
        Toastr::success('Successully Add 🙂' ,'Success');
-       return redirect()->back()->with('message','Registered succesfully');
+       return redirect()->route('index')->with('message','Registered succesfully');
        
     }
 
@@ -365,11 +375,14 @@ class FrontController extends Controller
 
         $categories= DB::table('tbl_blooddonor')->where('blood_group', $id)->orderBy('id', 'DESC')->get();
         $blood_group = DB::table('tbl_bloodgroup')->get();
+        $banner = DB::table('tbl_category')->get();
 
        return view('front_end.blood_donor.index',['categories'=>$categories, 'blood_group'=> $blood_group,
        'firstSlide'=> $firstSlide,
        'secondSlide'=> $secondSlide,
-       'thirdSlide'=> $thirdSlide]);
+       'thirdSlide'=> $thirdSlide,
+       'banner'=>$banner
+       ]);
 
     }
 
@@ -381,9 +394,13 @@ class FrontController extends Controller
         $firstSlide = DB::table('tbl_image')->where('situation',1)->where('status',1)->first();
         $secondSlide = DB::table('tbl_image')->where('situation',2)->where('status',1)->first();
         $thirdSlide = DB::table('tbl_image')->where('situation',3)->where('status',1)->first();
+        $banner = DB::table('tbl_category')->get();
+
         return view('front_end.contact',['firstSlide'=> $firstSlide,
        'secondSlide'=> $secondSlide,
-       'thirdSlide'=> $thirdSlide]);
+       'thirdSlide'=> $thirdSlide,
+       'banner'=> $banner
+       ]);
     }
 
 
